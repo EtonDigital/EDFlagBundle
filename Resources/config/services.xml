@@ -1,0 +1,64 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="ed_flag.annotation.reader" class="ED\FlagBundle\Service\FlagAnnotationReader">
+            <argument type="service" id="annotations.reader"/>
+        </service>
+
+        <service id="ed_flag.report.manager" class="ED\FlagBundle\Service\EDFlagManager">
+            <argument type="service" id="doctrine.orm.entity_manager"/>
+            <argument type="service" id="ed_flag.annotation.reader"/>
+            <argument>%ed_flag.model.report_class%</argument>
+            <argument>%ed_flag.model.reason_class%</argument>
+            <argument>%ed_flag.model.action_class%</argument>
+        </service>
+
+        <service id="ed_flag.report.listener" class="ED\FlagBundle\EventListener\FlagReportListener">
+            <argument type="service" id="ed_flag.annotation.reader"/>
+            <tag name="doctrine.event_listener" event="postLoad" />
+        </service>
+
+        <service id="ed_flag.report.form.type" class="ED\FlagBundle\Form\Type\FlagReportType">
+            <argument type="service" id="ed_flag.report.manager"/>
+            <argument>%ed_flag.model.report_class%</argument>
+            <tag name="form.type" alias="ed_flag_report_type" />
+        </service>
+
+        <service id="ed_flag.admin.reason" class="ED\FlagBundle\Admin\FlagReasonAdmin">
+            <tag name="sonata.admin" manager_type="orm" group="Flag" label="Reason" />
+            <argument />
+            <argument>%ed_flag.model.reason_class%</argument>
+            <argument />
+            <call method="setTranslationDomain">
+                <argument>EDFlagBundle</argument>
+            </call>
+        </service>
+
+        <service id="ed_flag.admin.report" class="ED\FlagBundle\Admin\FlagReportAdmin">
+            <tag name="sonata.admin" manager_type="orm" group="Flag" label="Report" />
+            <argument />
+            <argument>%ed_flag.model.report_class%</argument>
+            <argument>EDFlagBundle:FlagCRUD</argument>
+            <call method="setTranslationDomain">
+                <argument>EDFlagBundle</argument>
+            </call>
+            <call method="setFlagManager">
+                <argument type="service" id="ed_flag.report.manager"/>
+            </call>
+        </service>
+
+        <service id="ed_flag.admin.action" class="ED\FlagBundle\Admin\FlagActionAdmin">
+            <tag name="sonata.admin" manager_type="orm" group="Flag" label="Action" />
+            <argument />
+            <argument>%ed_flag.model.action_class%</argument>
+            <argument />
+            <call method="setTranslationDomain">
+                <argument>EDFlagBundle</argument>
+            </call>
+        </service>
+    </services>
+</container>

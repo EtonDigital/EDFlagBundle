@@ -1,0 +1,18 @@
+{% extends 'SonataAdminBundle:CRUD:base_list_field.html.twig' %}
+
+{% block field %}
+    {% if object.actions|length > 0  %}
+        <ul>
+            {% for action in object.actions %}
+            <li>
+                <a href="{{ admin.generateNamedUrl('show', action, {}, true) }}" title="Edit {{ action }}">
+                    {{ action }}
+                </a>
+            </li>
+
+            {% endfor %}
+        </ul>
+    {% else %}
+        -
+    {% endif %}
+{% endblock %}
