@@ -1,9 +1,9 @@
 {
-  "name": "ed/blog-bundle",
+  "name": "ed/flag-bundle",
   "type": "symfony-bundle",
-  "description": "Symfony EDBlogBundle",
-  "keywords": ["Blog"],
-  "homepage": "http://blog-demo.etonlabs.com",
+  "description": "Symfony EDFlagBundle",
+  "keywords": ["Flag", "Flagging"],
+  "homepage": "",
   "license": "MIT",
   "authors": [
     {
