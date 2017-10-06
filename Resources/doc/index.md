@@ -1,4 +1,4 @@
-#EdFlagBundle documentation
+# EdFlagBundle documentation
 
 [Installation](installation.md)
 
