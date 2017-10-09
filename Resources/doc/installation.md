@@ -12,7 +12,7 @@ public function registerBundles()
 {
     return array(
         // ...
-        new Ed\FlagBundle\EdFlagBundle(),
+        new ED\FlagBundle\EDFlagBundle(),
         // ...
     );
 }
