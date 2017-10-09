@@ -19,6 +19,7 @@ public function registerBundles()
 ```
 
 #### Import routing (Optional)
+
 Add EDFlagBundle's routing to your application with an optional routing prefix.
 ```yaml
 # app/config/routing.yml
