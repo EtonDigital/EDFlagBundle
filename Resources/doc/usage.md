@@ -60,8 +60,8 @@ use ED\FlagBundle\Entity\Traits\FlaggableEntityTrait;
  * @ED\Flaggable(alias="article")
  */
 class Article implements FlaggableInterface
-    {
-        use FlaggableEntityTrait;
+{
+    use FlaggableEntityTrait;
 
     ....
 ````

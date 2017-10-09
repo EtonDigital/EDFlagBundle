@@ -1,6 +1,6 @@
 <?php
 
-namespace ED\FlagBundle\Enity\Traits;
+namespace ED\FlagBundle\Entity\Traits;
 
 use Doctrine\ORM\Mapping as ORM;
 
