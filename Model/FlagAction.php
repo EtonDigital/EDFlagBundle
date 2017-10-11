@@ -12,6 +12,11 @@ class FlagAction
     CONST ACTION_UNPUBLISHED = 'Unpublish';
 
     /**
+     * Unpublish actions
+     */
+    CONST ACTION_REJECT = 'Reject';
+
+    /**
      * Unique ID of report
      *
      * @var mixed

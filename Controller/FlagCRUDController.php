@@ -19,12 +19,8 @@ class FlagCRUDController extends CRUDController
      *
      * @param $id
      *
-     * @return RedirectResponse
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
-    public function unpublishOldAction($id)
-    {
-    }
-
     public function unpublishAction($id)
     {
         $request = $this->getRequest();
@@ -76,6 +72,52 @@ class FlagCRUDController extends CRUDController
         }
 
         return $this->render('EDFlagBundle:CRUD:unpublish.html.twig', array(
+            'object' => $flagReport,
+            'form' => $form
+        ), null);
+    }
+
+    /**
+     * Reject action
+     *
+     * @param $id
+     *
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     */
+    public function rejectAction($id)
+    {
+        $request = $this->getRequest();
+        $id = $request->get($this->admin->getIdParameter());
+        $flagReport = $this->admin->getObject($id);
+
+        if (!$flagReport) {
+            throw $this->createNotFoundException(sprintf('unable to find the object with id : %s', $id));
+        }
+
+        $flagManager = $this->get('ed_flag.report.manager');
+
+        $action = $flagManager->createFlagAction();
+        $action->setReport($flagReport);
+        $action->setActionType(FlagAction::ACTION_REJECT);
+        $action->setAuthor($this->getUser());
+
+        $form = $this->createForm(FlagActionType::class);
+        $form->setData($action);
+
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            $flagReport->setStatus(FlagReport::STATUS_REJECTED);
+
+            $flagManager->save($form->getData());
+            $flagManager->save($flagReport);
+
+            $this->addFlash('sonata_flash_success', 'Flag report has been rejected');
+
+            return new RedirectResponse($this->admin->generateUrl('list', $this->admin->getFilterParameters()));
+        }
+
+        return $this->render('EDFlagBundle:CRUD:reject.html.twig', array(
             'object' => $flagReport,
             'form' => $form
         ), null);

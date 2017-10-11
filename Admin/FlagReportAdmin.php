@@ -76,6 +76,9 @@ class FlagReportAdmin extends AbstractAdmin
                     'unpublish' => [
                         'template' => 'EDFlagBundle:CRUD:list__action_unpublish.html.twig'
                     ],
+                    'reject' => [
+                        'template' => 'EDFlagBundle:CRUD:list__action_reject.html.twig'
+                    ],
                     'delete' => [],
                 ]
             ])
@@ -106,6 +109,7 @@ class FlagReportAdmin extends AbstractAdmin
 
         $collection
             ->add('unpublish', $this->getRouterIdParameter() . '/unpublish')
+            ->add('reject', $this->getRouterIdParameter() . '/reject')
             ->remove('create')
             ->remove('edit')
         ;
