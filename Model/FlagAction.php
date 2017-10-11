@@ -34,6 +34,11 @@ class FlagAction
     protected $report;
 
     /**
+     * @var string
+     */
+    protected $comment;
+
+    /**
      * Date when the report was created
      *
      * @var \DateTime
@@ -128,6 +133,30 @@ class FlagAction
     public function getActionType()
     {
         return $this->actionType;
+    }
+
+    /**
+     * Set comment
+     *
+     * @param string $comment
+     *
+     * @return $this
+     */
+    public function setComment($comment)
+    {
+        $this->comment = $comment;
+
+        return $this;
+    }
+
+    /**
+     * Get comment
+     *
+     * @return string
+     */
+    public function getComment()
+    {
+        return $this->comment;
     }
 
     /**

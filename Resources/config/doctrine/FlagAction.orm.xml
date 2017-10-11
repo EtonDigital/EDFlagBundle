@@ -6,6 +6,7 @@
 
     <mapped-superclass name="ED\FlagBundle\Entity\FlagAction">
         <field name="actionType" column="action_type" type="string" length="255" />
+        <field name="comment" column="comment" type="text" nullable="true" />
         <field name="createdAt" column="created_at" type="datetime"/>
     </mapped-superclass>
 
