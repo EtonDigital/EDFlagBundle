@@ -7,5 +7,5 @@ ed_flag:
     model:
         report_class: YourBundel\Entity\YourFlagReportEntity
         reason_class: YourBundel\Entity\YourFlagReasonEntity
-        action_class: Bandplanet\ReportBundle\Entity\FlagAction
+        action_class: YourBundel\Entity\YourFlagActionEntity
 ````

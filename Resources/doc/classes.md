@@ -35,7 +35,7 @@ class FlagReport extends BaseFlagReport
     protected $reason;
     
     /**
-     * @ORM\OneToMany(targetEntity="AppBuncle\Entity\FlagAction", mappedBy="report")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\FlagAction", mappedBy="report")
      */
     protected $actions;
 }

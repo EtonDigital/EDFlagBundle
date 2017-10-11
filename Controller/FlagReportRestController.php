@@ -17,18 +17,6 @@ class FlagReportRestController extends FOSRestController
     /**
      * Post flag report
      *
-     * @ApiDoc(
-     *  resource="Report",
-     *  input = "ED\FlagBundle\Form\Type\FlagReportType",
-     *  section="Flag",
-     *  authentication=true,
-     *  statusCodes={
-     *         201 = "Returned when successfuly created",
-     *         400 = "Returned when the posted data is invalid",
-     *         401 = "Returned when No AUTH found (Unauthorized)",
-     *     }
-     * )
-     *
      * @return \FOS\RestBundle\View\View
      */
     public function postFlagreportAction(Request $request)

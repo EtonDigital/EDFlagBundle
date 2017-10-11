@@ -28,6 +28,11 @@
             <tag name="form.type" alias="ed_flag_report_type" />
         </service>
 
+        <service id="ed_flag.action.form.type" class="ED\FlagBundle\Form\Type\FlagActionType">
+            <argument>%ed_flag.model.action_class%</argument>
+            <tag name="form.type" alias="ed_flag_action_type" />
+        </service>
+
         <service id="ed_flag.admin.reason" class="ED\FlagBundle\Admin\FlagReasonAdmin">
             <tag name="sonata.admin" manager_type="orm" group="Flag" label="Reason" />
             <argument />

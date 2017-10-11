@@ -12,6 +12,11 @@ class FlagAction
     CONST ACTION_UNPUBLISHED = 'Unpublish';
 
     /**
+     * Unpublish actions
+     */
+    CONST ACTION_REJECT = 'Reject';
+
+    /**
      * Unique ID of report
      *
      * @var mixed
@@ -32,6 +37,11 @@ class FlagAction
      * @var \ED\FlagBundle\Model\FlagReport
      */
     protected $report;
+
+    /**
+     * @var string
+     */
+    protected $comment;
 
     /**
      * Date when the report was created
@@ -128,6 +138,40 @@ class FlagAction
     public function getActionType()
     {
         return $this->actionType;
+    }
+
+    /**
+     * Set comment
+     *
+     * @param string $comment
+     *
+     * @return $this
+     */
+    public function setComment($comment)
+    {
+        $this->comment = $comment;
+
+        return $this;
+    }
+
+    /**
+     * Get comment
+     *
+     * @return string
+     */
+    public function getComment()
+    {
+        return $this->comment;
+    }
+
+    /**
+     * Get createdAt
+     *
+     * @return \DateTime
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
     }
 
     /**

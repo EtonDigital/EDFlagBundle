@@ -37,6 +37,13 @@ interface FlagManagerInterface
     public function createFlagReport();
 
     /**
+     * Creates new flag action
+     *
+     * @return mixed
+     */
+    public function createFlagAction();
+
+    /**
      * Get class name from alias
      *
      * @param string $alias

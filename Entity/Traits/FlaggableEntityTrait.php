@@ -1,6 +1,8 @@
 <?php
 
-namespace ED\FlagBundle\Model;
+namespace ED\FlagBundle\Entity\Traits;
+
+use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Trait FlaggableEntityTrait
@@ -10,7 +12,7 @@ trait FlaggableEntityTrait
     /**
      * Published status
      *
-     * @var bool
+     * @ORM\Column(type="boolean", nullable=true)
      */
     protected $published;
 

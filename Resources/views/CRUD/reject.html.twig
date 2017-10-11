@@ -1,0 +1,28 @@
+{% extends base_template %}
+
+{% block content %}
+    <div class="sonata">
+
+        <div class="box box-primary">
+            <div class="box-header">
+                <h3 class="box-title">Reject action</h3>
+            </div>
+
+            <form method="POST" action="{{ admin.generateObjectUrl('reject', object) }}">
+                <div class="box-body">
+                    Add comment to your action
+
+                    <div class="form-group">
+                        <div class="sonata-ba-field">
+                            {{ form_widget(form.comment, {'attr': {'class': 'form-control' }}) }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="box-footer clearfix">
+                    <button type="submit" class="btn btn-success"><i class="fa fa-ban" aria-hidden="true"></i> Reject</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

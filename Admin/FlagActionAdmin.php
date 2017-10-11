@@ -58,6 +58,7 @@ class FlagActionAdmin extends AbstractAdmin
             ->add('report')
             ->add('actionType')
             ->add('author')
+            ->add('comment')
             ->add('createdAt')
         ;
     }
