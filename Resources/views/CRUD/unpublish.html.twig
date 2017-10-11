@@ -1,0 +1,28 @@
+{% extends base_template %}
+
+{%- block actions -%}
+    {% include 'SonataAdminBundle:CRUD:action_buttons.html.twig' %}
+{%- endblock -%}
+
+{% block tab_menu %}{{ knp_menu_render(admin.sidemenu(action), {'currentClass' : 'active', 'template': sonata_admin.adminPool.getTemplate('tab_menu_template')}, 'twig') }}{% endblock %}
+
+{% block content %}
+    <div class="sonata-ba-delete">
+
+        <div class="box box-danger">
+            <div class="box-header">
+                <h3 class="box-title">Unpublish action</h3>
+            </div>
+            <div class="box-body">
+                Add comment to your action
+            </div>
+            <div class="box-footer clearfix">
+                <form method="POST" action="{{ admin.generateObjectUrl('unpublish', object) }}">
+                    <input type="hidden" name="_method" value="DELETE">
+
+                    <button type="submit" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i>Unpublish</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
