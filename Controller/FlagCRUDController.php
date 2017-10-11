@@ -73,7 +73,7 @@ class FlagCRUDController extends CRUDController
 
         return $this->render('EDFlagBundle:CRUD:unpublish.html.twig', array(
             'object' => $flagReport,
-            'form' => $form
+            'form' => $form->createView()
         ), null);
     }
 
@@ -119,7 +119,7 @@ class FlagCRUDController extends CRUDController
 
         return $this->render('EDFlagBundle:CRUD:reject.html.twig', array(
             'object' => $flagReport,
-            'form' => $form
+            'form' => $form->createView()
         ), null);
     }
 }
