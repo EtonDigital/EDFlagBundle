@@ -160,6 +160,16 @@ class FlagAction
     }
 
     /**
+     * Get createdAt
+     *
+     * @return \DateTime
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
      * To string
      *
      * @return string
